@@ -1,6 +1,6 @@
 const main = document.querySelector('.main');
 
-fetch('https://k1qsh8ytwc.execute-api.ap-southeast-2.amazonaws.com/default/TELECORE?limit=50&movies=true')
+fetch('https://k1qsh8ytwc.execute-api.ap-southeast-2.amazonaws.com/default/TELECORE?limit=25&movies=true')
     .then(res => res.json())
     .then(data => {
         makeCategoryElement("Movies", data); // Assuming you want to display movies without categorization
