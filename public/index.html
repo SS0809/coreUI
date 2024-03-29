@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix : Homepage</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .movie-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between; /* Added to distribute movies evenly */
+            align-content: flex-start; /* Added to ensure proper alignment */
+            min-height: 4000000px; /* Adjust as needed */ //TODO: 
+            padding: 10px; /* Added for spacing */
+            box-sizing: border-box; /* Added to include padding in calculation */
+        }
+
+        .movie {
+            width: calc(25% - 20px); /* Four movies in a row */
+            margin-bottom: 20px; /* Added for spacing between rows */
+            box-sizing: border-box;
+            cursor: pointer;
+            min-height: 100px; /* Adjust as needed */
+        }
+
+        @media screen and (max-width: 768px) {
+            .movie {
+                width: calc(50% - 20px); /* Two movies in a row on smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- navbar -->
+    <nav class="navbar">
+        <img src="img/logo.png" class="logo" alt="" style="zoom: 400px;">
+        <div class="join-box">
+            <p class="join-msg">unlimited tv shows & movies</p>
+            <button class="btn join-btn">join now</button>
+            <button class="btn">sign in</button>
+        </div>
+    </nav>
+
+    <div class="main">
+        
+    </div>
+
+    <script src="js/home.js"></script>
+    
+</body>
+</html>
