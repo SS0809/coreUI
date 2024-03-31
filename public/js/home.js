@@ -1,9 +1,10 @@
 const main = document.querySelector('.main');
-
-fetch('https://k1qsh8ytwc.execute-api.ap-southeast-2.amazonaws.com/default/TELECORE?limit=10&movies=true')
+let type = parseInt(window.location.hash.substring(1)) || 0; // Parse integer from hash
+type *= 12; // Multiply type by 12
+fetch('https://k1qsh8ytwc.execute-api.ap-southeast-2.amazonaws.com/default/TELECORE?limit=12&offset=' + type + '&blackhole_js=true')
     .then(res => res.json())
     .then(data => {
-        makeCategoryElement("Movies", data); 
+        makeCategoryElement("Movies", data);
     })
     .catch(err => console.error(err));
 
@@ -29,7 +30,7 @@ const makeCards = (id, data) => {
                 .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(item[key]))
                 .join('&');
             movieHTML += `
-                <div class="movie" onclick="location.href = '/${item.drive_code}?${queryString}&img=${(imgSrc)}/'">
+                <div class="movie">
                     <img src="${imgSrc}/" alt="">
                     <p class="movie-title">${item.movie_name}</p>
                 </div>
@@ -37,4 +38,20 @@ const makeCards = (id, data) => {
         }
     });
     movieContainer.innerHTML = movieHTML;
+    // Add event listeners to movie cards
+    const movieCards = document.querySelectorAll('.movie');
+    movieCards.forEach(card => {
+        card.addEventListener('click', () => {
+            // Handle card click event
+            // Construct URL and navigate to it
+            const driveCode = item.drive_code; // Assuming drive_code is a property of the item
+            const url = `/${driveCode}?${queryString}&img=${encodeURIComponent(imgSrc)}/`;
+            window.location.href = url;
+        });
+    });
+}
+
+function updateHash(hash) {
+    window.location.hash = hash;
+    window.location.reload();
 }

@@ -14,7 +14,7 @@
             flex-wrap: wrap;
             justify-content: space-between; /* Added to distribute movies evenly */
             align-content: flex-start; /* Added to ensure proper alignment */
-            min-height: 850px; /* Adjust as needed */ 
+            min-height: 80vh; /* Adjust as needed */ 
             padding: 10px; /* Added for spacing */
             box-sizing: border-box; /* Added to include padding in calculation */
         }
@@ -48,15 +48,21 @@
         
     </div>
 
-    <script src="js/home.js"></script>
+
 <!-- Footer with page numbers -->
 <footer>
     <ul class="pagination">
-        <li><a href="#1">1</a></li>
-        <li><a href="#2">2</a></li>
-        <li><a href="#3">3</a></li>
-        <li><a href="#4">4</a></li>
-    </ul>
-</footer>       
+        <li><a class="pages">Pages</a></li>
+        <!-- JavaScript loop to generate pagination links -->
+        <script>
+            // Loop from 0 to 18 (inclusive)
+            for (let i = 0; i <= 18; i++) {
+                document.write(`<li><a class="pages" href="#${i}" onclick="updateHash('#${i}')">${i}</a></li>`);
+            }
+        </script>
+    </ul>    
+</footer>
+
+<script src="js/home.js"></script>
 </body>
 </html>

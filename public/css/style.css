@@ -160,3 +160,34 @@ body{
 .pre-btn:hover{
     opacity: 1;
 }
+
+.pages{
+    background: black;
+    color: aliceblue;
+    margin: 5px 0;
+}
+.pagination {
+    display: flex; 
+    list-style: none;
+    padding: 0; /* Change padding to 0 */
+    position: fixed;
+    bottom: 5%;
+    left: 50%; /* Add left: 50% to center horizontally */
+    transform: translateX(-50%); /* Use transform to center horizontally */
+    text-align: center; /* Center text within each list item */
+}
+
+
+.pagination li {
+    margin-right: 5px;
+}
+
+.pagination li a {
+    text-decoration: none; 
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.pagination li a:hover {
+    background-color: #f0f0f0; 
+}
