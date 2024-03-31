@@ -16,23 +16,29 @@
     <nav class="navbar">
         <img src="img/logo.png" class="logo" alt="">
         <div class="join-box">
-            <p class="join-msg">unlimited tv shows & movies</p>
-            <button class="btn join-btn">join now</button>
-            <button class="btn">sign in</button>
+            <button class="btn" onclick="window.location.href='https://ss0809.github.io/blackhole_js/docs/?version=new'">Download App</button>
         </div>
     </nav>
 
-    <!-- movie info -->
-    <div class="movie-info">
-        <div class="movie-detail">
-            <h1 class="movie-name"></h1>
-            <button class="download" href="#">Direct Telegram</button>
-        </div>
+<!-- movie info -->
+<div class="movie-info">
+    <div class="movie-detail">
+        <h1 class="movie-name"></h1>
+        <h3 class="size"></h3>
+        <button class="download btn join-btn" onclick="
+            var telegramLink = new URLSearchParams(window.location.search).get('telegram');
+            if (telegramLink) {
+                window.location.href = 'https://ss0809.github.io/cdn/subdir1/?moviename=Fighter.2024.mkv&streamtape_code=null&doodstream_code=null&telegram=https://t.me/@search_blackhole_bot/?start='+telegramLink;
+            } else {
+                alert('Telegram link not found.');
+            }
+        ">Direct Telegram</button>
     </div>
+</div>
 
 
     <script src="js/api.js"></script>
     <script src="js/about.js"></script>
-    
+     
 </body>
 </html>

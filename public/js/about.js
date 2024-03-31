@@ -1,20 +1,20 @@
-const queryString = window.location.search;
+
+
+const setupMovieInfo = () => {
+    const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const urlParamsObject = {};
 for (const [key, value] of urlParams.entries()) {
     urlParamsObject[key] = value;
 }
-
-const setupMovieInfo = (data) => {
     const movieName = document.querySelector('.movie-name');
     const title = document.querySelector('title');
-    const backdrop = document.querySelector('.movie-info');
-    const download = document.querySelector('.download');    
+    const size = document.querySelector('.size');    
+    const backdrop = document.querySelector('.movie-info');  
 
-    title.innerHTML = movieName.innerHTML = data.movie_name;
-
-    backdrop.style.backgroundImage = `url(${data.img})`;
-    download.href = `/${data.telegram}`;
+    title.innerHTML = movieName.innerHTML = urlParamsObject.movie_name;
+    size.innerHTML = urlParamsObject.size_mb+"MB";
+    backdrop.style.backgroundImage = `url(${urlParamsObject.img})`;
 }
 
-setupMovieInfo(urlParamsObject); 
+setupMovieInfo(); 

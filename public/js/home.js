@@ -1,9 +1,9 @@
 const main = document.querySelector('.main');
 
-fetch('https://k1qsh8ytwc.execute-api.ap-southeast-2.amazonaws.com/default/TELECORE?limit=25&movies=true')
+fetch('https://k1qsh8ytwc.execute-api.ap-southeast-2.amazonaws.com/default/TELECORE?limit=10&movies=true')
     .then(res => res.json())
     .then(data => {
-        makeCategoryElement("Movies", data); // Assuming you want to display movies without categorization
+        makeCategoryElement("Movies", data); 
     })
     .catch(err => console.error(err));
 
@@ -20,11 +20,11 @@ const makeCategoryElement = (category, data) => {
 
 const makeCards = (id, data) => {
     const movieContainer = document.querySelector('.movie-container');
-    let movieHTML = ''; // Store movie HTML to avoid multiple reflows
+    let movieHTML = '';
     data.forEach((item, i) => {
         const imgSrc = 'https://ucarecdn.com/' + (item.img_data.length > 0 ? item.img_data[0] : '');
         if (imgSrc) {
-            const queryString = Object.keys(item) // Remove img_data field from query string
+            const queryString = Object.keys(item)
                 .filter(key => key !== 'img_data')
                 .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(item[key]))
                 .join('&');
