@@ -38,14 +38,10 @@ const makeCards = (id, data) => {
         }
     });
     movieContainer.innerHTML = movieHTML;
-    // Add event listeners to movie cards
     const movieCards = document.querySelectorAll('.movie');
     movieCards.forEach(card => {
         card.addEventListener('click', () => {
-            // Handle card click event
-            // Construct URL and navigate to it
-            const driveCode = item.drive_code; // Assuming drive_code is a property of the item
-            const url = `/about.html?${queryString}&img=${encodeURIComponent(imgSrc)}/`;
+        const url = `/about.html?${queryString}&img=${encodeURIComponent(imgSrc)}/`;
             window.location.href = url;
         });
     });
