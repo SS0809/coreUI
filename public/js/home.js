@@ -1,7 +1,7 @@
 const main = document.querySelector('.main');
 let type = parseInt(window.location.hash.substring(1)) || 0; // Parse integer from hash
 type *= 12; // Multiply type by 12
-fetch('https://k1qsh8ytwc.execute-api.ap-southeast-2.amazonaws.com/default/TELECORE?limit=12&offset=' + type + '&blackhole_js=true')
+fetch('https://k1qsh8ytwc.execute-api.ap-southeast-2.amazonaws.com/default/TELECORE?limit=12&offset=' + type + '&nodflix=true')
     .then(res => res.json())
     .then(data => {
         makeCategoryElement("Movies", data);
