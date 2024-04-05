@@ -45,7 +45,7 @@ const makeCards = (id, data) => {
             // Handle card click event
             // Construct URL and navigate to it
             const driveCode = item.drive_code; // Assuming drive_code is a property of the item
-            const url = `/${driveCode}?${queryString}&img=${encodeURIComponent(imgSrc)}/`;
+            const url = `/about?${queryString}&img=${encodeURIComponent(imgSrc)}/`;
             window.location.href = url;
         });
     });
