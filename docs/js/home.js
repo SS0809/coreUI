@@ -30,7 +30,7 @@ const makeCards = (id, data) => {
                 .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(item[key]))
                 .join('&');
             movieHTML += `
-                <div class="movie" onclick="location.href = '/${item.drive_code}?${queryString}&img=${(imgSrc)}/'">
+                <div class="movie" onclick="location.href = '/about.html?${queryString}&img=${(imgSrc)}/'">
                     <img src="${imgSrc}/" alt="">
                     <p class="movie-title">${item.movie_name}</p>
                 </div>
